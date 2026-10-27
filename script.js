@@ -3,7 +3,7 @@
    ========================================================== */
 const CONFIG = {
   brand: "Esquema Lolita",
-  whatsapp: "5515999999999", // DDI + DDD + número, só dígitos
+  whatsapp: "5513981743343", // DDI + DDD + número, só dígitos
   instagram: "esquemalolita",
   freeShipping: 350,
   installments: 3,
