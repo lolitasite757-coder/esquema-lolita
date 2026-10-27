@@ -290,12 +290,6 @@ document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeAll()
 $("#search").addEventListener("input", (e) => { ui.q = e.target.value.trim(); renderGrid(); });
 $("#sort").addEventListener("change", (e) => { ui.sort = e.target.value; renderGrid(); });
 
-$("#newsForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-  $("#newsMsg").textContent = "Pronto! Você vai receber nossas novidades ✦";
-  e.target.reset();
-});
-
 window.addEventListener("scroll", () => $(".header").classList.toggle("scrolled", scrollY > 10), { passive: true });
 
 /* ---------- Init ---------- */
