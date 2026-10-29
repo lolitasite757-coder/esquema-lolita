@@ -46,12 +46,12 @@ const PRODUCTS = [
     desc: "Short de cintura alta com cós largo, que não enrola nem marca. Perfeito por cima do collant.",
   },
   {
-    id: 8, name: "Touca de Natação em Lycra", cat: "Natação", line: "Natação", price: 24.9, sizes: ONE, tags: ["best"],
+    id: 8, name: "Touca de Natação em Lycra", cat: ["Natação", "Hidroginástica"], line: "Natação", price: 24.9, sizes: ONE, tags: ["best"],
     variants: [["Marinho", "#2d3a6b", "touca-marinho"], ["Preto", "#1f1a1c", "touca-preto"], ["Vinho", "#8e1d3d", "touca-vinho"]],
     desc: "Touca em lycra confortável, que não puxa o cabelo. Ideal para aulas de natação e hidroginástica.",
   },
   {
-    id: 9, name: "Maiô Natação", cat: "Natação", line: "Natação", price: 119.9, sizes: ADULT, tags: [],
+    id: 9, name: "Maiô Natação", cat: ["Natação", "Hidroginástica"], line: "Natação", price: 119.9, sizes: ADULT, tags: [],
     variants: [["Preto com vermelho", "#c8102e", "maio-natacao"]],
     desc: "Maiô de natação com vivos contrastantes, costas nadador e tecido resistente ao cloro.",
   },

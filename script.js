@@ -42,7 +42,7 @@ function filtered() {
     if (ui.tab === "novo" && !p.tags.includes("novo")) return false;
     if (ui.tab === "destaque" && !p.tags.includes("destaque")) return false;
     if (ui.tab === "favs" && !favs.includes(p.id)) return false;
-    if (ui.cat !== "Todos" && p.cat !== ui.cat) return false;
+    if (ui.cat !== "Todos" && !catsOf(p).includes(ui.cat)) return false;
     if (ui.q) {
       const hay = `${p.name} ${p.cat} ${p.line} ${p.variants.map((v) => v[0]).join(" ")}`.toLowerCase();
       if (!hay.includes(ui.q.toLowerCase())) return false;
@@ -87,8 +87,12 @@ function renderGrid() {
     : `<p class="empty">${ui.tab === "favs" ? "Você ainda não favoritou nenhuma peça. Toque no ♡ para salvar." : "Nenhuma peça encontrada. Tente outra busca."}</p>`;
 }
 
+// Um produto pode estar em mais de uma categoria (ex.: touca em natação e hidro)
+const catsOf = (p) => [].concat(p.cat);
+
 function renderChips() {
-  const cats = ["Todos", ...new Set(PRODUCTS.map((p) => p.cat))];
+  const used = new Set(PRODUCTS.flatMap(catsOf));
+  const cats = ["Todos", ...CAT_CARDS.map(([name]) => name).filter((c) => used.has(c))];
   $("#chips").innerHTML = cats.map((c) => `<button class="chip ${c === ui.cat ? "active" : ""}" data-cat="${c}">${c}</button>`).join("");
 }
 
@@ -98,7 +102,7 @@ const CAT_CARDS = [
   ["Ballet", "collant-regata-rosa", "Collants e saias"],
   ["Jazz", "short-jazz-grafite", "Shorts e básicos"],
   ["Natação", "touca-vinho", "Toucas e maiôs"],
-  ["Saídas", "colete-verde", "Coletes e parkas"],
+  ["Hidroginástica", "maio-natacao", "Maiôs e toucas"],
 ];
 function renderCats() {
   $("#cats").innerHTML = CAT_CARDS.map(([name, file, sub]) =>
